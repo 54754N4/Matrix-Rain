@@ -24,7 +24,7 @@ Matrix screen saver that supports multi-monitor setups, written in `Java`.
 
 This is the screenshot of the screen saver on a dual monitor setup (top and bottom).
 
-![Matrix Screen Saver](./Preview.png)
+![Matrix Preview](https://github.com/54754N4/Matrix-Rain/blob/master/Preview.png?raw=true)
 
 ## References
 
