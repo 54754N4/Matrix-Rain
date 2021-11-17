@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch4jConfig>
+  <dontWrapJar>false</dontWrapJar>
+  <headerType>gui</headerType>
+  <jar>D:\Desktop\Workspaces\Java\Eclipse Workspace 2020\Matrix Screen Saver\MatrixScreenSaver.jar</jar>
+  <outfile>D:\Desktop\Workspaces\Java\Eclipse Workspace 2020\Matrix Screen Saver\MatrixScreenSaver.exe</outfile>
+  <errTitle></errTitle>
+  <cmdLine></cmdLine>
+  <chdir>.</chdir>
+  <priority>normal</priority>
+  <downloadUrl>http://java.com/download</downloadUrl>
+  <supportUrl></supportUrl>
+  <stayAlive>false</stayAlive>
+  <restartOnCrash>false</restartOnCrash>
+  <manifest></manifest>
+  <icon>D:\Desktop\Media\Images\Icons\binary.ico</icon>
+  <singleInstance>
+    <mutexName>JavaMatrixScreenSaver</mutexName>
+    <windowTitle>Matrix Screen Saver</windowTitle>
+  </singleInstance>
+  <classPath>
+    <mainClass>test.Main</mainClass>
+    <cp>.</cp>
+  </classPath>
+  <jre>
+    <path>jre\jre1.8.0_301</path>
+    <bundledJre64Bit>true</bundledJre64Bit>
+    <bundledJreAsFallback>false</bundledJreAsFallback>
+    <minVersion>1.8.0</minVersion>
+    <maxVersion></maxVersion>
+    <jdkPreference>preferJre</jdkPreference>
+    <runtimeBits>64/32</runtimeBits>
+    <opt>-Xms64m</opt>
+    <opt>-Xmx64m</opt>
+    <opt>-Dfile.encoding=Cp1252</opt>
+  </jre>
+</launch4jConfig>
