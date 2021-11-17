@@ -2,7 +2,9 @@
 
 Matrix screen saver that supports multi-monitor setups, written in `Java`.
 
-**Note:** The first time you run the screen saver it will generate a `properties.conf` file that allows you to modify matrix parameters.
+**Note 1:** The first time you run the screen saver it will generate a `properties.conf` file that allows you to modify matrix parameters.
+
+**Note 2:** JVM arguments to pass when executing are `-Xms64m -Xmx64m` to set the initial and maximum heap size to 64mb. On my dual monitor setup it's enough, however for more than that you might need to tweak these a bit (especially when building with `Launch4j`)
 
 ## Building
 
@@ -17,12 +19,12 @@ Matrix screen saver that supports multi-monitor setups, written in `Java`.
 
 [^1]: This is where default screen savers are located. Since `.scr` are also executables, windows won't allow screen savers that haven't been put there by an administrator. Also it won't be listed by default if it's not in that location.
 
-## References
-
-http://launch4j.sourceforge.net/docs.html
-
 ## Preview
 
 This is the screenshot of the screen saver on a dual monitor setup (top and bottom).
 
 ![Matrix Screen Saver](./Preview.png)
+
+## References
+
+http://launch4j.sourceforge.net/docs.html
