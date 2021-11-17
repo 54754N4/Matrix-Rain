@@ -1,4 +1,4 @@
-# Matrix Screen Saver
+# Matrix Rain
 
 Matrix screen saver that supports multi-monitor setups, written in `Java`.
 
