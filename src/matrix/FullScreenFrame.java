@@ -11,13 +11,14 @@ import java.awt.event.MouseListener;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public abstract class FullScreenFrame extends JFrame implements Runnable, MouseListener {
+public abstract class FullScreenFrame extends JFrame implements MouseListener {
 	private static final long serialVersionUID = 8633577421804337082L;
 	public static final long DEFAULT_FRAME_DURATION = 10;
 	private long frameDuration;
 	
 	public FullScreenFrame(String title) {
 		super(title);
+		frameDuration = DEFAULT_FRAME_DURATION;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setUndecorated(true);
 		setAlwaysOnTop(true);
@@ -30,7 +31,6 @@ public abstract class FullScreenFrame extends JFrame implements Runnable, MouseL
 		setContentPane(new DrawingPanel());
 		addMouseListener(this);
 		validate();
-		frameDuration = DEFAULT_FRAME_DURATION;
 	}
 	
 	protected abstract void render(Graphics2D g);
@@ -54,10 +54,7 @@ public abstract class FullScreenFrame extends JFrame implements Runnable, MouseL
 			e.printStackTrace();
 		}
 	}
-	
-	@Override
-	public void run() {}
-	
+		
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		System.exit(0);

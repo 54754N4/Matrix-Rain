@@ -58,14 +58,16 @@ public class MatrixRain extends FullScreenFrame {
 		public Drop(int x) {
 			this.x = x;
 			text = alphabet.toCharArray();
-			reset();
 			shuffle();
+			reset();
 		}
 		
-		private void swap(int x, int y) {
-			char temp = text[x];
-			text[x] = text[y];
-			text[y] = temp;
+		private int randBetween(int min, int max) {
+			return random.nextInt(max-min+1)+min;
+		}
+		
+		private boolean hasOverflowed() {
+			return y > ScreenArea.TOTAL_HEIGHT;
 		}
 		
 		private void shuffle() {
@@ -76,12 +78,10 @@ public class MatrixRain extends FullScreenFrame {
 			}
 		}
 		
-		private int randBetween(int min, int max) {
-			return random.nextInt(max-min+1)+min;
-		}
-		
-		private boolean hasOverflowed() {
-			return y > ScreenArea.TOTAL_HEIGHT;
+		private void swap(int x, int y) {
+			char temp = text[x];
+			text[x] = text[y];
+			text[y] = temp;
 		}
 		
 		private void reset() {
