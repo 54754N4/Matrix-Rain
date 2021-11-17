@@ -9,8 +9,9 @@ Matrix screen saver that supports multi-monitor setups, written in `Java`.
 ## Building
 
 1. Compile the program into a runnable `.jar`.
-2. Use `Launch4j` to compile into `.exe` (you can load the `MatrixScreenSaver.xml` configuration file into `Launch4J`). Then click on the cog to build either the wrapper or executable.
-3. Rename the generated `.exe` to `.scr` and then double click to run.
+2. Make sure you download a `JRE` and put it near the `Launch4J` executable so it can find it.
+3. Use `Launch4j` to compile into `.exe` (you can load the `MatrixScreenSaver.xml` configuration file into `Launch4J`). Then click on the cog to build either the wrapper or executable.
+4. Rename the generated `.exe` to `.scr` and then double click to run.
 
 ## Setting as default
 
