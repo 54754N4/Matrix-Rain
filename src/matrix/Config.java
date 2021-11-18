@@ -15,9 +15,9 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class Config {
-	public static final String FILE_NAME = "properties.conf";
 	public static final Config INSTANCE;
-	public static final String ALPHABET = "АБВГДЕЁЖЗИЙКЛМНОавгдеёжзийклмноПРСТУФХЦЧШЩЪЫЬЭЮЯпрстуфхцчшщъыьэюяabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_-+=[]}{|\\'\":;?/>.<,~`";;
+	public static final String FILE_NAME = "properties.conf",
+			ALPHABET = "АБВГДЕЁЖЗИЙКЛМНОавгдеёжзийклмноПРСТУФХЦЧШЩЪЫЬЭЮЯпрстуфхцчшщъыьэюяabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_-+=[]}{|\\'\":;?/>.<,~`";;
 	
 	public final int fontSize, 
 		velocityMin, velocityMax,

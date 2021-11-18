@@ -8,7 +8,7 @@
   <cmdLine></cmdLine>
   <chdir>.</chdir>
   <priority>normal</priority>
-  <downloadUrl>http://java.com/download</downloadUrl>
+  <downloadUrl></downloadUrl>
   <supportUrl></supportUrl>
   <stayAlive>false</stayAlive>
   <restartOnCrash>false</restartOnCrash>
@@ -19,7 +19,7 @@
     <windowTitle>Matrix Screen Saver</windowTitle>
   </singleInstance>
   <classPath>
-    <mainClass>test.Main</mainClass>
+    <mainClass>matrix.Main</mainClass>
     <cp>.</cp>
   </classPath>
   <jre>
@@ -30,8 +30,15 @@
     <maxVersion></maxVersion>
     <jdkPreference>preferJre</jdkPreference>
     <runtimeBits>64/32</runtimeBits>
-    <opt>-Xms64m</opt>
-    <opt>-Xmx64m</opt>
+    <initialHeapSize>64</initialHeapSize>
+    <maxHeapSize>64</maxHeapSize>
     <opt>-Dfile.encoding=Cp1252</opt>
   </jre>
+  <messages>
+    <startupErr>An error occurred while starting the application.</startupErr>
+    <bundledJreErr>This application requires a Java Runtime Environment.</bundledJreErr>
+    <jreVersionErr>This application requires a Java Runtime Environment</jreVersionErr>
+    <launcherErr>The registry refers to a nonexistent Java Runtime Environment installation or the runtime is corrupted.</launcherErr>
+    <instanceAlreadyExistsMsg>An application instance is already running.</instanceAlreadyExistsMsg>
+  </messages>
 </launch4jConfig>

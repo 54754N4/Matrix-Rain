@@ -11,22 +11,19 @@ import javax.swing.SwingUtilities;
 
 public class MatrixRain extends FullScreenFrame {
 	private static final long serialVersionUID = 6341276691527129471L;
+	private static final Random random = new Random(1);
 	
-	private String alphabet;
-	private Random random;
 	private int fontSize;
 	private Font font;
 	private Drop[] drops;
 	
 	public MatrixRain() {
 		super("Matrix Screen Saver");
-		random = new Random(1);
-		alphabet = Config.ALPHABET;
 		fontSize = Config.INSTANCE.fontSize;
 		font = new Font("Monospaced", Font.PLAIN, fontSize);
 		drops = new Drop[ScreenArea.MAX_WIDTH/fontSize];
 		for (int i=0; i<drops.length; i++) 
-			drops[i] = new Drop(i*fontSize);
+			drops[i] = new Drop(i, fontSize);
 		setVisible(true);
 	}
 
@@ -44,7 +41,7 @@ public class MatrixRain extends FullScreenFrame {
 		SwingUtilities.invokeLater(() -> new MatrixRain());
 	}
 	
-	private final class Drop {
+	private static final class Drop {
 		private static final Color HIGHLIGHT = new Color(
 				Config.INSTANCE.highlightRed,
 				Config.INSTANCE.highlightGreen,
@@ -53,11 +50,12 @@ public class MatrixRain extends FullScreenFrame {
 		private static Map<Integer, Color> COLOR_CACHE = new HashMap<>();
 		
 		private char[] text;
-		private int x, y, velocity, length, alphaIncrement;
+		private int x, y, velocity, length, alphaIncrement, fontSize;
 		
-		public Drop(int x) {
-			this.x = x;
-			text = alphabet.toCharArray();
+		public Drop(int i, int fontSize) {
+			this.fontSize = fontSize;
+			x = i*fontSize;
+			text = Config.ALPHABET.toCharArray();
 			shuffle();
 			reset();
 		}
@@ -72,8 +70,8 @@ public class MatrixRain extends FullScreenFrame {
 		
 		private void shuffle() {
 			for (int i=0, x, y; i<text.length; i++) {
-				x = random.nextInt(alphabet.length());
-				y = random.nextInt(alphabet.length());
+				x = random.nextInt(Config.ALPHABET.length());
+				y = random.nextInt(Config.ALPHABET.length());
 				swap(x, y);
 			}
 		}
@@ -85,7 +83,7 @@ public class MatrixRain extends FullScreenFrame {
 		}
 		
 		private void reset() {
-			length = random.nextInt(alphabet.length()-1)+1;	// avoid 0;
+			length = random.nextInt(Config.ALPHABET.length()-1)+1;	// avoid 0;
 			alphaIncrement = 255/length;
 			if (alphaIncrement == 0)
 				alphaIncrement = 1;
