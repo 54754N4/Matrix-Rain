@@ -22,7 +22,8 @@ public class Config {
 	public final int fontSize, 
 		velocityMin, velocityMax,
 		colorRed, colorGreen, colorBlue,
-		highlightRed, highlightGreen, highlightBlue;
+		highlightRed, highlightGreen, highlightBlue,
+		keyboardExit, mouseExit;
 	public final double rainResetChance;
 	
 	static {
@@ -40,7 +41,8 @@ public class Config {
 	}
 	
 	public Config(int fontSize, int velocityMin, int velocityMax, int colorRed, int colorGreen, int colorBlue,
-			int highlightRed, int highlightGreen, int highlightBlue, double rainResetChance) {
+			int highlightRed, int highlightGreen, int highlightBlue, double rainResetChance, 
+			int keyboardExit, int mouseExit) {
 		this.fontSize = fontSize;
 		this.velocityMin = velocityMin;
 		this.velocityMax = velocityMax;
@@ -51,6 +53,8 @@ public class Config {
 		this.highlightGreen = highlightGreen;
 		this.highlightBlue = highlightBlue;
 		this.rainResetChance = rainResetChance;
+		this.keyboardExit = keyboardExit;
+		this.mouseExit = mouseExit;
 	}
 	
 	public static Config from(String name) {
@@ -72,6 +76,8 @@ public class Config {
 					case "highlightGreen": builder.setHighlightGreen(Integer.parseInt(split[1])); break;
 					case "highlightBlue": builder.setHighlightBlue(Integer.parseInt(split[1])); break;
 					case "rainResetChance": builder.setRainResetChance(Double.parseDouble(split[1])); break;
+					case "keyboardExit": builder.setKeyboardExit(Integer.parseInt(split[1])); break;
+					case "mouseExit": builder.setMouseExit(Integer.parseInt(split[1])); break;
 					default: throw new IllegalArgumentException("Invalid property : "+split[0]);
 				}
 			}	
@@ -94,6 +100,8 @@ public class Config {
 			writer.append(format("highlightGreen", highlightGreen));
 			writer.append(format("highlightBlue", highlightBlue));
 			writer.append(format("rainResetChance", rainResetChance));
+			writer.append(format("keyboardExit", keyboardExit));
+			writer.append(format("mouseExit", mouseExit));
 			writer.flush();
 		}
 		return file;
@@ -107,7 +115,8 @@ public class Config {
 		public int fontSize, 
 			velocityMin, velocityMax,
 			colorRed, colorGreen, colorBlue,
-			highlightRed, highlightGreen, highlightBlue;
+			highlightRed, highlightGreen, highlightBlue,
+			keyboardExit, mouseExit;
 		public double rainResetChance;
 		
 		public Builder() {	// defaults
@@ -121,6 +130,8 @@ public class Config {
 			highlightGreen = 255;
 			highlightBlue = 255;
 			rainResetChance = 0.9;
+			keyboardExit = 0;
+			mouseExit = 0;
 		}
 
 		public Builder setFontSize(int fontSize) {
@@ -172,13 +183,23 @@ public class Config {
 			this.rainResetChance = rainResetChance;
 			return this;
 		}
+		
+		public Builder setKeyboardExit(int keyboardExit) {
+			this.keyboardExit = keyboardExit;
+			return this;
+		}
+		
+		public Builder setMouseExit(int mouseExit) {
+			this.mouseExit = mouseExit;
+			return this;
+		}
 
 		public Config build() {
 			return new Config(fontSize, 
 					velocityMin, velocityMax, 
 					colorRed, colorGreen, colorBlue, 
 					highlightRed, highlightGreen, highlightBlue, 
-					rainResetChance);
+					rainResetChance, keyboardExit, mouseExit);
 		}
 	}
 }

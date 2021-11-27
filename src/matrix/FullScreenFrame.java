@@ -7,13 +7,17 @@ import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public abstract class FullScreenFrame extends JFrame implements MouseListener {
+public abstract class FullScreenFrame extends JFrame implements MouseListener, MouseMotionListener, KeyListener {
 	private static final long serialVersionUID = 8633577421804337082L;
 	public static final long DEFAULT_FRAME_DURATION = 10;
+	private Integer ix, iy; 		// initial mouse position
 	private long frameDuration;
 	
 	public FullScreenFrame(String title) {
@@ -30,6 +34,8 @@ public abstract class FullScreenFrame extends JFrame implements MouseListener {
 		setSize(getMaxDimension());
 		setContentPane(new DrawingPanel());
 		addMouseListener(this);
+		addKeyListener(this);
+		addMouseMotionListener(this);
 		validate();
 	}
 	
@@ -60,10 +66,30 @@ public abstract class FullScreenFrame extends JFrame implements MouseListener {
 		System.exit(0);
 	}
 
+	@Override
+	public void mouseMoved(MouseEvent e) {
+		if (ix == null && iy == null) {
+			ix = e.getX();
+			iy = e.getY();
+			return;
+		} else if (e.getX() != ix || e.getY() != iy)
+			if (Config.INSTANCE.mouseExit == 1)
+				System.exit(0);
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		if (Config.INSTANCE.keyboardExit == 1)
+			System.exit(0);
+	}
+
 	@Override public void mousePressed(MouseEvent e) {}
 	@Override public void mouseReleased(MouseEvent e) {}
 	@Override public void mouseEntered(MouseEvent e) {}
 	@Override public void mouseExited(MouseEvent e) {}
+	@Override public void mouseDragged(MouseEvent e) {}
+	@Override public void keyTyped(KeyEvent e) {}
+	@Override public void keyReleased(KeyEvent e) {}
 	
 	private final class DrawingPanel extends JPanel {
 		private static final long serialVersionUID = -5719760888399028189L;
