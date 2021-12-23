@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch4jConfig>
-  <dontWrapJar>false</dontWrapJar>
+  <dontWrapJar>true</dontWrapJar>
   <headerType>gui</headerType>
-  <jar>D:\Desktop\Workspaces\Java\Eclipse Workspace 2020\Matrix Screen Saver\MatrixScreenSaver.jar</jar>
+  <jar>MatrixScreenSaver.jar</jar>
   <outfile>D:\Desktop\Workspaces\Java\Eclipse Workspace 2020\Matrix Screen Saver\MatrixScreenSaver.exe</outfile>
   <errTitle></errTitle>
   <cmdLine></cmdLine>

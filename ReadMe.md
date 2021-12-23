@@ -15,10 +15,11 @@ Matrix screen saver that supports multi-monitor setups, written in `Java`.
 
 ## Setting as default
 
-1. Move the `MatrixScreenSaver.scr` and `properties.conf` files to `C:\Windows\system32`[^1]
+1. Move the `MatrixScreenSaver.scr`, `properties.conf` and `MatrixScreenSaver.jar`[^2] files to `C:\Windows\system32`[^1]
 2. Right click the `.scr` file and click install
 
 [^1]: This is where default screen savers are located. Since `.scr` are also executables, windows won't allow screen savers that haven't been put there by an administrator. Also it won't be listed by default if it's not in that location.
+[^2]: The jar needs to be copied as well because the `.exe` was made to simply launch the jar and not wrap it (to avoid antivirus problems). 
 
 ## Preview
 
