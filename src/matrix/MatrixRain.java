@@ -21,7 +21,7 @@ public class MatrixRain extends FullScreenFrame {
 		super("Matrix Screen Saver");
 		fontSize = Config.INSTANCE.fontSize;
 		font = new Font("Monospaced", Font.PLAIN, fontSize);
-		drops = new Drop[ScreenArea.MAX_WIDTH/fontSize];
+		drops = new Drop[ScreenArea.TOTAL_WIDTH/fontSize];
 		for (int i=0; i<drops.length; i++) 
 			drops[i] = new Drop(i, fontSize);
 		setVisible(true);
