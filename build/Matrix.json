@@ -1,0 +1,11 @@
+{
+  "jrePath": "jre",
+  "classPath": [
+    "MatrixScreenSaver.jar"
+  ],
+  "mainClass": "matrix.Main",
+  "useZgcIfSupportedOs": false,
+  "vmArgs": [
+    "-file.encoding=Cp1252"
+  ]
+}

@@ -6,12 +6,26 @@ Matrix screen saver that supports multi-monitor setups, written in `Java`.
 
 **Note 2:** JVM arguments to pass when executing are `-Xms64m -Xmx64m` to set the initial and maximum heap size to 64mb. On my dual monitor setup it's enough, however for more than that you might need to tweak these a bit (especially when building with `Launch4j`)
 
-## Building
+## Building (Launch4J)
 
 1. Compile the program into a runnable `.jar`.
 2. Make sure you download a `JRE` and put it near the `Launch4J` executable so it can find it.
 3. Use `Launch4j` to compile into `.exe` (you can load the `MatrixScreenSaver.xml` configuration file into `Launch4J`). Then click on the cog to build either the wrapper or executable.
 4. Rename the generated `.exe` to `.scr` and then double click to run.
+
+## Building (Packr)
+
+Just run packr and the bundle will be created inside the `build` folder.
+```Powershell
+java -jar .\packr-all-4.0.0.jar \
+	--platform windows64 \
+	--jdk "D:\Program Files\Java\jdk-1-8-0_282" \
+	--classpath .\MatrixScreenSaver.jar \
+	--mainclass matrix.Main \
+	--vmargs file.encoding=Cp1252 \
+	--output build \
+	--executable Matrix
+```
 
 ## Setting as default
 
